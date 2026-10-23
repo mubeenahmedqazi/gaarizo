@@ -1,0 +1,76 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum AdStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum Fuel {
+  Petrol
+  Diesel
+  Hybrid
+  Electric
+  CNG
+}
+
+enum Transmission {
+  Manual
+  Automatic
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  phone     String
+  password  String
+  role      Role     @default(USER)
+  ads       Ad[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Ad {
+  id           String       @id @default(uuid())
+  title        String
+  brand        String
+  model        String
+  year         Int
+  price        BigInt
+  mileage      Int
+  city         String
+  fuel         Fuel
+  transmission Transmission
+  engineCC     Int
+  color        String
+  description  String
+  images       Json         @default("[]")
+  status       AdStatus     @default(PENDING)
+  rejectReason String?
+  isSold       Boolean      @default(false)
+  isFeatured   Boolean      @default(false)
+  views        Int          @default(0)
+  sellerId     String
+  seller       User         @relation(fields: [sellerId], references: [id], onDelete: Cascade)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([status])
+  @@index([brand])
+  @@index([city])
+  @@index([price])
+}
