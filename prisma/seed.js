@@ -1,4 +1,7 @@
 // Idempotent seed: safe to run many times.
+// Load .env when present (not needed when env vars are already set, e.g. in Docker).
+try { process.loadEnvFile(); } catch {}
+
 const { PrismaClient } = require("@prisma/client");
 const bcrypt = require("bcryptjs");
 

@@ -6,7 +6,7 @@ const ThemeContext = createContext(null);
 
 // The initial class is set by an inline script in layout.js (no flash on load).
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");

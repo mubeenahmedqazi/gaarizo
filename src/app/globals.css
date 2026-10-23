@@ -3,15 +3,15 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg: #f4f7fd;
+  --bg: #ffffff;
   --fg: #0f172a;
   --muted: #64748b;
-  --card: rgba(255, 255, 255, 0.75);
-  --card-border: rgba(15, 23, 42, 0.1);
-  --input: rgba(255, 255, 255, 0.9);
-  --glow-a: rgba(59, 130, 246, 0.25);
-  --glow-b: rgba(34, 211, 238, 0.22);
-  --glow-c: rgba(139, 92, 246, 0.22);
+  --card: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(15, 23, 42, 0.12);
+  --input: #f8fafc;
+  --glow-a: rgba(59, 130, 246, 0.14);
+  --glow-b: rgba(34, 211, 238, 0.14);
+  --glow-c: rgba(139, 92, 246, 0.12);
 }
 
 .dark {
@@ -53,7 +53,8 @@ body {
   min-width: 320px;
   min-height: 320px;
   border-radius: 9999px;
-  filter: blur(110px);
+  filter: blur(80px);
+  will-change: transform;
   animation: float 18s ease-in-out infinite alternate;
 }
 .bg-glow span:nth-child(1) { background: var(--glow-a); top: -12%; left: -8%; }
@@ -125,3 +126,8 @@ body {
   from { background-position: 200% 0; }
   to { background-position: -200% 0; }
 }
+
+/* Light theme: soft shadows, readable chips/hover on white */
+:root:not(.dark) .glass { box-shadow: 0 4px 24px -8px rgba(15, 23, 42, 0.12); }
+:root:not(.dark) .hover\:bg-white\/10:hover { background: rgba(15, 23, 42, 0.06); }
+:root:not(.dark) .bg-white\/5 { background: rgba(15, 23, 42, 0.04); }

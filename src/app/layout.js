@@ -17,7 +17,7 @@ export const metadata = {
 };
 
 // Runs before first paint so the saved theme is applied without a flash.
-const themeScript = `(function(){try{var t=localStorage.getItem('gaarizo_theme');if(t!=='light'){document.documentElement.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})();`;
+const themeScript = `(function(){try{var t=localStorage.getItem('gaarizo_theme');if(t==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`;
 
 export default function RootLayout({ children }) {
   return (
