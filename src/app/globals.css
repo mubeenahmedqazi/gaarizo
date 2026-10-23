@@ -131,3 +131,8 @@ body {
 :root:not(.dark) .glass { box-shadow: 0 4px 24px -8px rgba(15, 23, 42, 0.12); }
 :root:not(.dark) .hover\:bg-white\/10:hover { background: rgba(15, 23, 42, 0.06); }
 :root:not(.dark) .bg-white\/5 { background: rgba(15, 23, 42, 0.04); }
+
+/* Hero photo crossfade: 3 images x 6s */
+.hero-slide { opacity: 0; animation: heroFade 18s infinite; }
+.hero-slide:first-child { opacity: 1; }
+@keyframes heroFade { 0% { opacity: 0; } 5%, 33% { opacity: 1; } 38%, 100% { opacity: 0; } }

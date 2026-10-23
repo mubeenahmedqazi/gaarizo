@@ -17,7 +17,11 @@ export default function Footer() {
     <footer className="glass mt-20 border-x-0 border-b-0">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-gradient text-xl font-extrabold">Gaarizo</p>
+          <div className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="" className="h-9 w-9 rounded-lg bg-white object-contain" />
+            <p className="text-gradient text-xl font-extrabold">Gaarizo</p>
+          </div>
           <p className="text-muted mt-1 text-sm">Pakistan ki gaariyan, aik jagah</p>
         </div>
         <nav className="text-muted flex flex-wrap gap-x-6 gap-y-2 text-sm">

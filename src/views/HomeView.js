@@ -11,6 +11,29 @@ import { api } from "@/components/api";
 
 const POPULAR = ["Toyota", "Honda", "Suzuki", "KIA", "Hyundai", "Changan"];
 
+const LOGOS = {
+  Toyota: "/brands/toyota.jpg",
+  Honda: "/brands/honda.svg",
+  Suzuki: "/brands/suzuki.jpg",
+  KIA: "/brands/kia.svg",
+  Hyundai: "/brands/hyundai.svg",
+};
+
+const HERO_IMAGES = ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg"];
+
+// Crossfading background photos (CSS only, no JS timers).
+function HeroSlides() {
+  return (
+    <div className="absolute inset-0" aria-hidden="true">
+      {HERO_IMAGES.map((src, i) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img key={src} src={src} alt="" loading={i === 0 ? "eager" : "lazy"} className="hero-slide absolute inset-0 h-full w-full object-cover" style={{ animationDelay: `${i * 6}s` }} />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/70" />
+    </div>
+  );
+}
+
 const STEPS = [
   { icon: UserPlus, title: "Sign up", text: "Create a free account in under a minute." },
   { icon: Car, title: "Post your ad", text: "Add photos and details of your car." },
@@ -68,7 +91,9 @@ export default function HomeView() {
 
   return (
     <div className="pb-4">
-      <section className="mx-auto max-w-5xl px-4 pt-16 text-center sm:px-6 sm:pt-24">
+      <section className="relative mx-auto mt-4 max-w-7xl overflow-hidden rounded-3xl sm:mx-4 xl:mx-auto">
+        <HeroSlides />
+        <div className="relative mx-auto max-w-5xl px-4 py-16 text-center text-white sm:px-6 sm:py-24">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -81,7 +106,7 @@ export default function HomeView() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          className="text-muted mt-4 text-lg"
+          className="mt-4 text-lg text-white/80"
         >
           Pakistan ki gaariyan, aik jagah
         </motion.p>
@@ -110,6 +135,7 @@ export default function HomeView() {
             <Search size={18} /> Search
           </button>
         </motion.form>
+        </div>
       </section>
 
       <Section title="Popular Brands">
@@ -120,7 +146,12 @@ export default function HomeView() {
                 href={`/cars?brand=${encodeURIComponent(b)}`}
                 className="glass glass-hover flex flex-col items-center gap-2 rounded-2xl py-6 transition hover:-translate-y-1"
               >
-                <span className="btn-gradient flex h-12 w-12 items-center justify-center rounded-xl text-lg">{b[0]}</span>
+                {LOGOS[b] ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={LOGOS[b]} alt={b} loading="lazy" className="h-12 w-12 rounded-lg bg-white object-contain p-1" />
+                ) : (
+                  <span className="btn-gradient flex h-12 w-12 items-center justify-center rounded-xl text-lg">{b[0]}</span>
+                )}
                 <span className="font-semibold">{b}</span>
               </Link>
             </motion.div>

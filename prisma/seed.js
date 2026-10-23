@@ -18,7 +18,7 @@ const APPROVED = [
   { title: "Hyundai Tucson GLS Sport 2023", brand: "Hyundai", model: "Tucson", year: 2023, price: 10250000, mileage: 14000, city: "Karachi", fuel: "Petrol", transmission: "Automatic", engineCC: 2000, color: "Grey" },
   { title: "Honda City Aspire 1.5 2020", brand: "Honda", model: "City", year: 2020, price: 4650000, mileage: 47000, city: "Faisalabad", fuel: "Petrol", transmission: "Automatic", engineCC: 1500, color: "Blue" },
   { title: "Toyota Yaris ATIV X 1.5 2021", brand: "Toyota", model: "Yaris", year: 2021, price: 4350000, mileage: 33000, city: "Islamabad", fuel: "Petrol", transmission: "Automatic", engineCC: 1500, color: "Silver" },
-  { title: "Suzuki Swift DLX 1.3 2017", brand: "Suzuki", model: "Swift", year: 2017, price: 2950000, mileage: 71000, city: "Lahore", fuel: "Petrol", transmission: "Manual", engineCC: 1300, color: "Orange" },
+  { title: "Suzuki Swift DLX 1.3 2017", brand: "Suzuki", model: "Swift", year: 2017, price: 2950000, mileage: 71000, city: "Lahore", fuel: "Petrol", transmission: "Manual", engineCC: 1300, color: "Orange", images: [{ url: "/cars/swift.jpg", publicId: "" }] },
   { title: "Suzuki Wagon R VXL 2015", brand: "Suzuki", model: "Wagon R", year: 2015, price: 1850000, mileage: 98000, city: "Karachi", fuel: "CNG", transmission: "Manual", engineCC: 1000, color: "White" },
 ];
 
@@ -57,7 +57,7 @@ async function main() {
       ...a,
       price: BigInt(a.price),
       description: DESCRIPTION,
-      images: [],
+      images: a.images || [],
       status,
       sellerId: seller.id,
     });
