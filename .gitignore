@@ -26,3 +26,5 @@ Thumbs.db
 # misc
 .claude
 coverage
+selenium-tests/*.png
+__pycache__

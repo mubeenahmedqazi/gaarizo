@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: gaarizo-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      - gaarizo-net
+
+  app:
+    build: .
+    image: gaarizo-app:1.0
+    container_name: gaarizo-app
+    env_file: .env
+    environment:
+      # overrides any DATABASE_URL (e.g. Neon) coming from .env
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    ports:
+      - "80:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/api/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - gaarizo-net
+
+networks:
+  gaarizo-net:
+    driver: bridge
+
+volumes:
+  pgdata:
