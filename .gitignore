@@ -1,4 +1,28 @@
+# dependencies
 node_modules
+
+# build output
 .next
-.env
 out
+build
+*.tsbuildinfo
+next-env.d.ts
+
+# environment (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# misc
+.claude
+coverage
