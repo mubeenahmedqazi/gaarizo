@@ -87,7 +87,7 @@ export default function CarDetailView({ id }) {
                 <button
                   key={img.publicId || i}
                   onClick={() => setActive(i)}
-                  className={`aspect-[4/3] overflow-hidden rounded-xl border-2 transition ${i === active ? "border-cyan-400" : "border-transparent opacity-70 hover:opacity-100"}`}
+                  className={`aspect-[4/3] overflow-hidden rounded-xl border-2 transition ${i === active ? "border-red-500" : "border-transparent opacity-70 hover:opacity-100"}`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={cloudinaryUrl(img.url, "f_auto,q_auto,w_300")} alt="" className="h-full w-full object-cover" />
@@ -117,7 +117,7 @@ export default function CarDetailView({ id }) {
           <div className="glass grid grid-cols-2 gap-4 rounded-3xl p-5">
             {specs.map((s) => (
               <div key={s.label} className="flex items-center gap-3">
-                <s.icon size={18} className="shrink-0 text-cyan-400" />
+                <s.icon size={18} className="shrink-0 text-red-500" />
                 <div className="min-w-0">
                   <p className="text-muted text-xs">{s.label}</p>
                   <p className="truncate text-sm font-semibold">{s.value}</p>

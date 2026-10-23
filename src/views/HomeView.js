@@ -29,7 +29,7 @@ function HeroSlides() {
         // eslint-disable-next-line @next/next/no-img-element
         <img key={src} src={src} alt="" loading={i === 0 ? "eager" : "lazy"} className="hero-slide absolute inset-0 h-full w-full object-cover" style={{ animationDelay: `${i * 6}s` }} />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/70" />
     </div>
   );
 }
@@ -91,9 +91,9 @@ export default function HomeView() {
 
   return (
     <div className="pb-4">
-      <section className="relative mx-auto mt-4 max-w-7xl overflow-hidden rounded-3xl sm:mx-4 xl:mx-auto">
+      <section className="relative flex min-h-[88vh] items-center overflow-hidden">
         <HeroSlides />
-        <div className="relative mx-auto max-w-5xl px-4 py-16 text-center text-white sm:px-6 sm:py-24">
+        <div className="relative mx-auto w-full max-w-5xl px-4 py-16 text-center text-white sm:px-6">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

@@ -9,7 +9,7 @@ export default function CarImage({ src, alt, brand, model, className = "" }) {
   }
   return (
     <div
-      className={`flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-blue-600/40 via-cyan-500/30 to-violet-600/40 ${className}`}
+      className={`flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-red-700/40 via-red-500/20 to-neutral-500/30 ${className}`}
     >
       <Car size={44} className="opacity-80" />
       <span className="px-3 text-center text-sm font-semibold opacity-90">

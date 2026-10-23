@@ -47,11 +47,11 @@ export default function Navbar() {
 
   return (
     <header className="glass sticky top-0 z-40 border-x-0 border-t-0">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Gaarizo logo" className="h-10 w-10 rounded-xl bg-white object-contain" />
-          <span id="site-title" className="text-gradient text-xl font-extrabold tracking-tight">
+          <img src="/logo.png" alt="Gaarizo logo" className="h-16 w-16 rounded-xl bg-white object-contain" />
+          <span id="site-title" className="text-gradient text-2xl font-extrabold tracking-tight">
             Gaarizo
           </span>
         </Link>

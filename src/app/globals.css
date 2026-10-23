@@ -9,21 +9,21 @@
   --card: rgba(255, 255, 255, 0.85);
   --card-border: rgba(15, 23, 42, 0.12);
   --input: #f8fafc;
-  --glow-a: rgba(59, 130, 246, 0.14);
-  --glow-b: rgba(34, 211, 238, 0.14);
-  --glow-c: rgba(139, 92, 246, 0.12);
+  --glow-a: rgba(220, 38, 38, 0.14);
+  --glow-b: rgba(120, 120, 130, 0.14);
+  --glow-c: rgba(239, 68, 68, 0.12);
 }
 
 .dark {
-  --bg: #060b1e;
+  --bg: #0b0b10;
   --fg: #e6ecff;
   --muted: #8b9bc4;
   --card: rgba(255, 255, 255, 0.05);
   --card-border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.06);
-  --glow-a: rgba(59, 130, 246, 0.35);
-  --glow-b: rgba(34, 211, 238, 0.25);
-  --glow-c: rgba(139, 92, 246, 0.35);
+  --glow-a: rgba(220, 38, 38, 0.35);
+  --glow-b: rgba(120, 120, 130, 0.25);
+  --glow-c: rgba(239, 68, 68, 0.35);
 }
 
 @theme inline {
@@ -76,23 +76,23 @@ body {
   transition: box-shadow 0.3s, border-color 0.3s;
 }
 .glass-hover:hover {
-  border-color: rgba(34, 211, 238, 0.5);
-  box-shadow: 0 0 30px -4px rgba(34, 211, 238, 0.35);
+  border-color: rgba(220, 38, 38, 0.5);
+  box-shadow: 0 0 30px -4px rgba(220, 38, 38, 0.35);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #3b82f6, #22d3ee, #8b5cf6);
+  background: linear-gradient(90deg, #991b1b, #dc2626, #ef4444);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .btn-gradient {
-  background: linear-gradient(90deg, #3b82f6, #22d3ee 60%, #8b5cf6);
+  background: linear-gradient(90deg, #991b1b, #dc2626 60%, #ef4444);
   color: #fff;
   font-weight: 600;
   transition: box-shadow 0.3s, transform 0.2s, opacity 0.2s;
 }
-.btn-gradient:hover { box-shadow: 0 0 24px rgba(34, 211, 238, 0.5); transform: translateY(-1px); }
+.btn-gradient:hover { box-shadow: 0 0 24px rgba(220, 38, 38, 0.5); transform: translateY(-1px); }
 .btn-gradient:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
 .btn-ghost {
@@ -101,7 +101,7 @@ body {
   font-weight: 500;
   transition: border-color 0.2s, background 0.2s;
 }
-.btn-ghost:hover { border-color: rgba(34, 211, 238, 0.6); }
+.btn-ghost:hover { border-color: rgba(220, 38, 38, 0.6); }
 
 .field {
   width: 100%;
@@ -113,7 +113,7 @@ body {
   color: var(--fg);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-.field:focus { border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2); }
+.field:focus { border-color: #dc2626; box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2); }
 .field option { color: #0f172a; background: #fff; }
 
 .skeleton {

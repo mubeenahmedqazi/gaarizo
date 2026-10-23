@@ -10,12 +10,12 @@ import { api, jsonOptions } from "@/components/api";
 import { formatPrice } from "@/lib/format";
 
 const STATS = [
-  { key: "totalAds", label: "Total Ads", color: "from-blue-500 to-cyan-400" },
+  { key: "totalAds", label: "Total Ads", color: "from-red-700 to-red-400" },
   { key: "pending", label: "Pending", color: "from-yellow-500 to-amber-300" },
   { key: "approved", label: "Approved", color: "from-green-500 to-emerald-300" },
   { key: "rejected", label: "Rejected", color: "from-red-500 to-rose-300" },
-  { key: "sold", label: "Sold", color: "from-violet-500 to-fuchsia-400" },
-  { key: "users", label: "Users", color: "from-cyan-500 to-sky-300" },
+  { key: "sold", label: "Sold", color: "from-neutral-600 to-neutral-400" },
+  { key: "users", label: "Users", color: "from-red-600 to-orange-400" },
 ];
 
 function Counter({ value }) {

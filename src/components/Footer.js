@@ -19,7 +19,7 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="" className="h-9 w-9 rounded-lg bg-white object-contain" />
+            <img src="/logo.png" alt="" className="h-16 w-16 rounded-xl bg-white object-contain" />
             <p className="text-gradient text-xl font-extrabold">Gaarizo</p>
           </div>
           <p className="text-muted mt-1 text-sm">Pakistan ki gaariyan, aik jagah</p>
