@@ -1,9 +1,12 @@
 """Selenium smoke test for Gaarizo.
 
-Usage: python test_app.py [base_url]     (or set APP_URL; default http://localhost)
+Usage: python test_app.py [base_url] [--headed]
+  base_url: or set APP_URL; default http://localhost
+  --headed: show Chrome and pause 1.5s between checks (default is headless)
 """
 import os
 import sys
+import time
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -11,7 +14,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-BASE_URL = (sys.argv[1] if len(sys.argv) > 1 else os.environ.get("APP_URL", "http://localhost")).rstrip("/")
+HEADED = "--headed" in sys.argv[1:]
+_args = [a for a in sys.argv[1:] if not a.startswith("--")]
+BASE_URL = (_args[0] if _args else os.environ.get("APP_URL", "http://localhost")).rstrip("/")
+PAUSE = 1.5 if HEADED else 0
 SHOT_DIR = os.path.dirname(os.path.abspath(__file__))
 results = []
 
@@ -19,11 +25,13 @@ results = []
 def report(name, ok, detail=""):
     results.append(ok)
     print(f"{'PASS' if ok else 'FAIL'} - {name}" + (f" ({detail})" if detail else ""))
+    time.sleep(PAUSE)  # only pauses in --headed mode, so the run can be watched
 
 
 def make_driver():
     opts = Options()
-    opts.add_argument("--headless=new")
+    if not HEADED:
+        opts.add_argument("--headless=new")
     opts.add_argument("--no-sandbox")
     opts.add_argument("--disable-dev-shm-usage")
     opts.add_argument("--window-size=1366,900")

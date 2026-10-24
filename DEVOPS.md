@@ -49,4 +49,10 @@ pip install -r selenium-tests/requirements.txt
 python selenium-tests/test_app.py http://localhost          # or: APP_URL=http://<ec2-ip> python ...
 ```
 
+Watch it run in a visible browser (1.5s pause between checks):
+
+```bash
+python test_app.py http://<url> --headed
+```
+
 Prints PASS/FAIL per check, saves `home.png` and `cars.png`, exits 1 if anything fails.
