@@ -13,7 +13,7 @@ export async function GET() {
     db = "disconnected";
   }
   return NextResponse.json(
-    { status: "ok", db, hostname: os.hostname(), time: new Date().toISOString() },
+    { status: "200", db, hostname: os.hostname(), time: new Date().toISOString() },
     { headers: { "Cache-Control": "no-store" } }
   );
 }
